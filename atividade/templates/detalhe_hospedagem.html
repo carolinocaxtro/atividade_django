@@ -1,0 +1,48 @@
+<!-- detalhe_hospedagem.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes da Hospedagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes da Hospedagem</h1>
+    <ul>
+        <li><strong>Cliente:</strong> {{ hospedagem.cliente.nome }}</li>
+        <li><strong>Quarto:</strong> {{ hospedagem.quarto.apartamento }}</li>
+        <li><strong>Data de Entrada:</strong> {{ hospedagem.data_entrada }}</li>
+        <li><strong>Data de Saída:</strong> {{ hospedagem.data_saida }}</li>
+        <li><strong>Valor:</strong> {{ hospedagem.valor }}</li>
+    </ul>
+    <a href="{% url 'lista_hospedagens' %}">Voltar para a lista de hospedagens</a>
+</body>
+</html>
+

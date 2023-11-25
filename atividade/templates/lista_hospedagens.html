@@ -1,0 +1,69 @@
+<!-- lista_hospedagens.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Hospedagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #f0f0f0;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .actions a:hover {
+            background-color: #eee;
+        }
+        .details {
+            color: blue;
+        }
+        .edit {
+            color: orange;
+        }
+        .remove {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Hospedagens</h1>
+    
+    <a href="{% url 'cadastrar_hospedagem' %}"> cadastr </a>
+
+
+    <ul>
+        {% for hospedagem in hospedagens %}
+            <li>
+                <strong>Cliente:</strong> {{ hospedagem.cliente.nome }}<br>
+                <strong>Quarto:</strong> {{ hospedagem.quarto.apartamento }}<br>
+                <strong>Valor:</strong> {{ hospedagem.valor }}<br>
+                <div class="actions">
+                    <a class="details" href="{% url 'detalhe_hospedagem' hospedagem.id %}">Detalhe</a>
+                    <a class="edit" href="{% url 'editar_hospedagem' hospedagem.id %}">Editar</a>
+                    <a class="remove" href="{% url 'remover_hospedagem' hospedagem.id %}">Remover</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
